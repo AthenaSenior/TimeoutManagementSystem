@@ -1,0 +1,224 @@
+
+<br />
+<br />
+<br />
+<br />
+<meta charset="UTF-8">
+<div style="text-align: center;"><img src="logom.png" width="100px" height="105px" alt="" /><br /><br /><br />
+</div>
+
+<div style="text-align: right;">
+     
+</div>
+</font><div style="text-align: center;"><span style="color: rgb(255, 255, 255);">______________________________________________________________________________________________________________________________________________________________________________________</span><font color="#ffffff"><br />
+</div>
+<br type="_moz" />
+</font></div>
+<div style="text-align: center;">
+<style type="text/css">
+html, body {margin: 0; height: 100%; color: white}
+html {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+body{background-color: black;} 
+.test{height:25px; width:100px;}
+.test2{height:25px; width:100px;}
+.test3{height:25px; width:100px;}
+.test4{height:25px; width:100px;}
+</style>
+
+<style>.image-preview{
+            width: 200px;
+            min-height: 100px;
+            border: 2px solid #dddddd;
+            margin-top : 15px;
+            /*Default text*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #cccccc;
+            margin-left: 15%;
+        }
+        .image-preview__image{
+            display:none;
+            width: 200px;
+			height: 200px;
+        }
+        #uploader{
+            margin-left:15%;
+        }
+		</style>
+
+<div style="text-align: right;">
+    
+<br />
+<br />
+<div style="text-align: center;">
+<button id="girisyap">Reset All Times</button></br><label id="basarili">Tüm süreler sıfırlandı.</label></br></br></br>
+<table id="myTable" style="border:1px solid black;margin-left:auto;margin-right:auto;">  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+    </tr>
+	    <tr>
+      <td></td>
+    </tr>
+	    <tr>
+      <td></td>
+    </tr>
+	    <tr>
+      <td></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+    </tr>
+  </tfoot></table>
+</div>
+<div style="text-align: center;"><br />
+<span style="color: rgb(255, 255, 255); text-align: center;">______________________________________________________________________________________________________________________________________________________________________________________</span><br />
+<br />
+<br type="_moz" />
+<br />
+&nbsp;</div></div>
+</div></div></div>
+   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
+ <script>
+const firebaseConfig = {
+    apiKey: "AIzaSyAAAGK1SRLOYGnk0mLL-hY3UypIvXTUWgM",
+	authDomain: "matadorbet-a886b.firebaseapp.com",
+	databaseURL: "https://matadorbet-a886b-default-rtdb.firebaseio.com",
+	projectId: "matadorbet-a886b",
+	storageBucket: "matadorbet-a886b.appspot.com",
+	messagingSenderId: "564472622277",
+	appId: "1:564472622277:web:13b645697c6925c64614ac",
+	measurementId: "G-GZBMG6SHGC"
+  };
+firebase.initializeApp(firebaseConfig);
+var temp;
+var temp_username;
+var initial_time;
+var hasLogin;
+var hours;
+var basarililabel = document.getElementById('basarili');
+var table = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+var others = document.getElementById('others');
+var statusX = document.getElementById('statusX');
+var timee = document.getElementById('timee');
+var bar = document.getElementById('statusBarr');
+var on = document.getElementById('statusOn');
+var awayButon = document.getElementById('goAway');
+var onButon = document.getElementById('goOnline');
+var girisButon = document.getElementById('girisyap');
+var cikisButon = document.getElementById('cikisyap');
+var errorLabel = document.getElementById('error');
+var nicklabel = document.getElementById('Nickname');
+var nickInput = document.getElementById('Nicknamee');
+var passlabel = document.getElementById('Password');
+var passInput = document.getElementById('pass');
+var hiddenBtn = document.getElementsByClassName('hidden-upload-btn')[0];
+var hiddenBtn2 = document.getElementsByClassName('hidden-upload-btn2')[0];
+var progress = document.getElementsByClassName('progress')[0];
+var percent = document.getElementById('percent');
+var pause = document.getElementsByClassName('pause')[0];
+var resume = document.getElementsByClassName('resume')[0];
+var cancel = document.getElementsByClassName('cancel')[0];
+
+basarililabel.style.visibility = "hidden";
+	// var x = firebase.database().ref().child('Link');
+	// x.on('value', snap => percent.textContent = snap.val());
+var starCountRef = firebase.database().ref();
+starCountRef.on('value', (snapshot) => {
+	table.innerHTML = "";
+	snapshot.forEach(child => {  
+	if(child.val().Status == "Away"){
+	var HtmlContent = '<img src = "' + child.val().Photo+ '" width="300" height = "300" </img></br><div style="text-align: center;"></br> <font size="10">' + child.key + '</font></br><strong><span style="color: rgb(255, 255, 0);">' + child.val().Status + '</span></strong></br> Total Away: ' + Math.floor(child.val().Time / 60) + ' Minutes </br></br></br>';
+	if (child.key == "Detaylı")
+	{
+	var HtmlContent = "";
+	}
+	else if (child.val().cekimizni)
+	{
+			var HtmlContent = '<img src = "' + child.val().Photo+ '" width="300" height = "300"  </img></br><div style="text-align: center;"></br><font size="10">' + child.key + '</font></br> <strong><span style="color: rgb(255, 255, 0);">' + child.val().Status + '</span></strong></br> Total Away: ' + Math.floor(child.val().Time / 60) + ' Dakika </br> Total Withdraw: ' + Math.floor(child.val().CekimTime / 60) + ' Minutes </br></br></br></br>';
+	}
+	}
+	else if(child.val().Status == "On"){
+	var HtmlContent = '<img src = "' + child.val().Photo + '" width="300" height = "300"  </img></br><div style="text-align: center;"></br><font size="10">' + child.key + ' </font></br><strong><span style="color: rgb(0, 255, 0);">' + child.val().Status + '</span></strong></br> Total Away: ' + Math.floor(child.val().Time / 60) + ' Minutes </br></br></br>';
+	if (child.key == "Detaylı")
+	{
+	var HtmlContent = "";
+	}
+	else if (child.val().cekimizni)
+	{
+			var HtmlContent = '<img src = "' + child.val().Photo+ '" width="300" height = "300"  </img> </br><div style="text-align: center;"></br><font size="10">' + child.key + ' </font></br><strong><span style="color: rgb(0, 255, 0);">' + child.val().Status + '</span></strong></br> Total Away: ' + Math.floor(child.val().Time / 60) + ' Minutes </br> Total Withdraw: ' + Math.floor(child.val().CekimTime / 60) + ' Minutes </br></br></br></br>';
+	}
+	}
+	
+	else if (child.val().Status == "Çekim") {
+	var HtmlContent = '<img src = "' + child.val().Photo  + '" width="300" height = "300"  </img> </br><div style="text-align: center;"></br><font size="10">' + child.key + '</font></br> <strong><span style="color: rgb(51, 102, 255);">' + child.val().Status + '</span></strong></br> Total Away: ' + Math.floor(child.val().Time / 60) + ' Minutes </br></br></br>';
+	if (child.key == "Detaylı")
+	{
+	var HtmlContent = "";
+	}
+	else if (child.val().cekimizni)
+	{
+			var HtmlContent = '<img src = "' + child.val().Photo+ '" width="300" height = "300"  </img></br> <div style="text-align: center;"></br><font size="10">' + child.key + '</font></br><strong><span style="color: rgb(51, 102, 255);">' + child.val().Status + '</span></strong></br> Total Away: ' + Math.floor(child.val().Time / 60) + ' Minutes </br> Total Withdraw: ' + Math.floor(child.val().CekimTime / 60) + ' Minutes </br></br></br></br>';
+	}
+	}
+	
+	else{
+	var HtmlContent = '<img src = "' + child.val().Photo  + '" width="300" height = "300"  </img></br> &nbsp;<div style="text-align: center;"></br><font size="10">' + child.key + '</font></br><strong><span style="color: rgb(255, 0, 0);">' + child.val().Status + '</span></strong></br> Total Away: ' + Math.floor(child.val().Time / 60) + ' Minutes </br></br></br>';
+	if (child.key == "Detaylı")
+	{
+	var HtmlContent = "";
+	}
+	else if (child.val().cekimizni)
+	{
+			var HtmlContent = '<img src = "' + child.val().Photo+ '" width="300" height = "300"  </img> </br><div style="text-align: center;"></br><font size="10">' + child.key + ' </font></br><strong><span style="color: rgb(255, 0, 0);">' + child.val().Status + '</span></strong></br> Total Away: ' + Math.floor(child.val().Time / 60) + ' Minutes </br> Total Withdraw: ' + Math.floor(child.val().CekimTime / 60) + ' Minutes </br></br></br></br>';
+	}
+	}
+	var newRow = table.insertRow(table.rows.length);
+	newRow.innerHTML = HtmlContent;
+	});
+	});
+
+girisButon.onclick = function () {
+	basarililabel.style.visibility = "visible";
+	var starCountRef = firebase.database().ref();
+	starCountRef.on('value', (snapshot) => {
+	snapshot.forEach(child => {  
+	temp_username = child.key;
+	firebase.database().ref(temp_username).update({
+    Time: 0,
+	CekimTime: 0
+	});
+	});
+	});
+
+}
+
+
+
+
+if(!localStorage.getItem("uploaded-metadata")){
+    var metadata = '[]';
+    localStorage.setItem('uploaded-metadata', metadata)
+}
+
+
+
+	</script>
+	<!---------------------------------------->
+	

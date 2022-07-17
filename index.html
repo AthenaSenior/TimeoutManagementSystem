@@ -1,0 +1,439 @@
+<br />
+<br />
+<br />
+<br />
+<meta charset="UTF-8">
+<div style="text-align: center;"><img src="logom.png" width="100px" height="105px" alt="" /><br /><br /><br />
+<font size="10">Timeout Management System</font>
+<font color="#ffffff"></br><br /><label id="welcome"> </label></br><b><label id="statusX">Status</label></b></br><label id="statusOn"><span style="color: rgb(0, 255, 0);"><strong>Available</strong></span></label></strong></span>  </br>
+<label id="timee"> </label> <label id="cekimtimee"> </label></div>
+
+<div style="text-align: center;">
+<button id="goAway"><img src="away.png"></button>  <button id="goOnline"><img src="online.png"></button>  <button id="goCekim"><img src="cekim.png"></button>  <button id="cikisyap"><img src="offline.png"></button></div>
+</font><div style="text-align: center;"><span style="color: rgb(255, 255, 255);">______________________________________________________________________________________________________________________________________________________________________________________</span><font color="#ffffff"><br />
+</div>
+<br type="_moz" />
+</font></div>
+<div style="text-align: center;">
+<style type="text/css">
+html, body {margin: 0; height: 100%; color: white}
+html {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+<!-- 
+body{background-image:url(https://wallpaperaccess.com/full/684821.jpg);background-attachment: fixed} 
+-->
+</style>
+
+<style>.image-preview{
+            width: 200px;
+            min-height: 100px;
+            border: 2px solid #dddddd;
+            margin-top : 15px;
+            /*Default text*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #cccccc;
+            margin-left: 15%;
+        }
+        .image-preview__image{
+            display:none;
+            width: 200px;
+			height: 200px;
+        }
+        #uploader{
+            margin-left:15%;
+        }
+		#goAway img {
+			width: 100px;
+			height: 30px;
+			display: block;
+		}
+		#goOnline img {
+			width: 100px;
+			height: 30px;
+			display: block;
+		}
+		#goCekim img {
+			width: 100px;
+			height: 30px;
+			display: block;
+		}
+		#cikisyap img {
+			width: 100px;
+			height: 30px;
+			display: block;
+		}
+		#girisyap img {
+			width: 100px;
+			height: 40px;
+			display: block;
+		}
+		#container {
+		display: flex;
+		justify-content: space-between;
+		}
+		button{
+		background: none;
+		border: none;
+		}
+
+		</style>
+
+<div style="text-align: right;">
+    
+<br />
+<br />
+<div style="text-align: center;">
+	&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<label id="Nickname">ID:</label>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" id="Nicknamee" />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+	&nbsp; &nbsp;&nbsp;&nbsp;</br></br>
+	<label id="Password">Password:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" id="pass" /></br></br> <button id="girisyap"><img src="login.png"></button></br></br></br>
+	<label id="error">Wrong ID Or Password.</label>
+	<div style="text-align: center;"><label id ="cizgi1">______________________________________________________________________________________________________________________________________________________________________________________<br /></label></div>
+	<div style="text-align: center;">
+<strong><label id="others">Participants</label></strong></br></br>
+<label id="statusBarr">ID &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Status
+</label>
+<table id="myTable" style="margin-left:auto;margin-right:auto;">
+    <tbody>
+        <tr>
+            <td id="cell0">&nbsp;</td>
+            <td id="cell1">&nbsp;</td>
+            <td id="cell2">&nbsp;</td>
+            <td id="cell3">&nbsp;</td>
+            <td id="cell4">&nbsp;</td>
+            <td id="cell5">&nbsp;</td>
+        </tr>
+        <tr>
+            <td id="cell6">&nbsp;</td>
+            <td id="cell7">&nbsp;</td>
+            <td id="cell8">&nbsp;</td>
+            <td id="cell9">&nbsp;</td>
+            <td id="cell10">&nbsp;</td>
+            <td id="cell11">&nbsp;</td>
+        </tr>
+        <tr>
+            <td id="cell12">&nbsp;</td>
+            <td id="cell13">&nbsp;</td>
+            <td id="cell14">&nbsp;</td>
+            <td id="cell15">&nbsp;</td>
+            <td id="cell16">&nbsp;</td>
+            <td id="cell17">&nbsp;</td>
+        </tr>
+        <tr>
+            <td id="cell18">&nbsp;</td>
+            <td id="cell19">&nbsp;</td>
+            <td id="cell20">&nbsp;</td>
+            <td id="cell21">&nbsp;</td>
+            <td id="cell22">&nbsp;</td>
+            <td id="cell23">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div style="text-align: center;"><br />
+<label id ="cizgi2">______________________________________________________________________________________________________________________________________________________________________________________<br /></label>
+<br />
+<br type="_moz" />
+<br />
+&nbsp;</div></div>
+</div></div></div>
+   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
+ <script>
+const firebaseConfig = {
+    apiKey: "AIzaSyAAAGK1SRLOYGnk0mLL-hY3UypIvXTUWgM",
+	authDomain: "matadorbet-a886b.firebaseapp.com",
+	databaseURL: "https://matadorbet-a886b-default-rtdb.firebaseio.com",
+	projectId: "matadorbet-a886b",
+	storageBucket: "matadorbet-a886b.appspot.com",
+	messagingSenderId: "564472622277",
+	appId: "1:564472622277:web:13b645697c6925c64614ac",
+	measurementId: "G-GZBMG6SHGC"
+  };
+firebase.initializeApp(firebaseConfig);
+var temp;
+var temp2;
+var temp_username;
+var initial_time;
+var initial_time2;
+var hasLogin;
+var hours;
+var cekimizni;
+var cell0 = document.getElementById('cell0');
+var welcome = document.getElementById('welcome');
+var table = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+var others = document.getElementById('others');
+var statusX = document.getElementById('statusX');
+var timee = document.getElementById('timee');
+var cekimtimee = document.getElementById('cekimtimee');
+var bar = document.getElementById('statusBarr');
+var on = document.getElementById('statusOn');
+var c1 = document.getElementById('cizgi1');
+var c2 = document.getElementById('cizgi2');
+var awayButon = document.getElementById('goAway');
+var onButon = document.getElementById('goOnline');
+var cekimButon = document.getElementById('goCekim');
+var girisButon = document.getElementById('girisyap');
+var cikisButon = document.getElementById('cikisyap');
+var errorLabel = document.getElementById('error');
+var nicklabel = document.getElementById('Nickname');
+var nickInput = document.getElementById('Nicknamee');
+var passlabel = document.getElementById('Password');
+var passInput = document.getElementById('pass');
+var hiddenBtn = document.getElementsByClassName('hidden-upload-btn')[0];
+var hiddenBtn2 = document.getElementsByClassName('hidden-upload-btn2')[0];
+var progress = document.getElementsByClassName('progress')[0];
+var percent = document.getElementById('percent');
+var pause = document.getElementsByClassName('pause')[0];
+var resume = document.getElementsByClassName('resume')[0];
+var cancel = document.getElementsByClassName('cancel')[0];
+
+	// var x = firebase.database().ref().child('Link');
+	// x.on('value', snap => percent.textContent = snap.val());
+
+error.style.display = "none";
+cikisButon.style.visibility = "hidden";
+welcome.style.display = "none";
+others.style.display = "none";
+statusX.style.display = "none";
+on.style.display = "none";
+table.style.display = "none";
+timee.style.display = "none";
+onButon.style.visibility = "hidden";
+bar.style.display = "none";
+cekimButon.style.visibility = "hidden";
+awayButon.style.visibility = "hidden";
+cekimtimee.style.display = "none";
+c2.style.display = "none";
+
+girisButon.onclick = function () {
+	var value = passInput.value
+	var nickname = nickInput.value
+	passInput.value = "";
+	nickInput.value = "";
+	var starCountRef = firebase.database().ref();
+	starCountRef.on('value', (snapshot) => {
+	snapshot.forEach(child => {  
+	var i = child.key;
+	var p = child.val().password;
+	temp_username = nickname;
+	initial_time = child.val().Time;
+	initial_time2 = child.val().CekimTime;
+	hours = child.val().Hours;
+	cekimizni = child.val().cekimizni;
+	if (p == value && i == nickname)
+	{
+		hasLogin = true;
+		welcome.textContent = "Welcome, " + nickname;
+		timee.textContent = "You are away for " + Math.floor(child.val().Time / 60) +" minutes in this month.";
+		cekimtimee.textContent = "You are in withdraw mode for " + Math.floor(child.val().CekimTime / 60) +" minutes in this month.";
+		statusX.style.display = "block";
+		timee.style.display = "block";
+		cekimtimee.style.display = "block";
+		others.style.display = "block";
+		bar.style.display = "block";
+		c2.style.display = "block";
+		onButon.style.visibility = "visible";
+		table.style.display = "block";
+		awayButon.style.visibility = "visible";
+		cekimButon.style.visibility = "visible";
+		on.style.display = "block";
+		if(child.val().Status == "On")
+		{
+			const y = '<span style="color: rgb(0, 255, 0);"><strong>Available</strong></span>';
+			on.innerHTML = y;
+		}
+		else if (child.val().Status == "Away"){
+			const x = '<strong><span style="color: rgb(255, 255, 0);">Away</span></strong>';
+			on.innerHTML = x;
+		}
+		else if(child.val().Status == "Çekim")
+		{
+			const aa = '<strong><span style="color: rgb(51, 102, 255);">Çekim</span></strong>';
+			on.innerHTML = aa;
+		}
+		else{
+			const z = '<strong><span style="color: rgb(255, 0, 0);">Off</span></strong>';
+			on.innerHTML = z;
+		}
+		error.style.display = "none";
+		cikisButon.style.visibility = "visible";
+		welcome.style.display = "block";
+		nicklabel.style.display = "none";
+		passlabel.style.display = "none";
+		c1.style.display = "none";
+		passInput.style.display = "none";
+		girisButon.style.display = "none";
+		nickInput.style.display = "none";
+		throw BreakException;
+	}
+	else
+	{
+		error.style.display = "block";
+	}
+	});
+	
+	});
+	
+	
+	starCountRef.on('value', (snapshot) => {
+	table.innerHTML = "";
+	snapshot.forEach(child => {  
+	if(child.val().Status == "Away"){
+	var HtmlContent = '<img src = "' +child.val().Photo+ '" width="20" height = "20" </img> &nbsp;' + child.key + ' &nbsp;<strong><span style="color: rgb(255, 255, 0);">' + child.val().Status + '</span></strong>';
+	if(child.key == " Tolga"){
+	HtmlContent += "</br></br>";
+	}
+	else if (child.key == "Detaylı")
+	{
+	var HtmlContent = "";
+	}
+	}
+	else if(child.val().Status == "On"){
+	var HtmlContent = '<img src = "' + child.val().Photo + '" width="20" height = "20" </img> &nbsp;' + child.key + ' &nbsp;<strong><span style="color: rgb(0, 255, 0);">' + child.val().Status + '</span></strong>';
+	if(child.key == " Tolga")
+	HtmlContent += "</br></br>";
+	}
+	else if(child.val().Status == "Çekim"){
+	var HtmlContent = '<img src = "' + child.val().Photo  + '" width="20" height = "20" </img> &nbsp;' + child.key + ' &nbsp;<strong><span style="color: rgb(51, 102, 255);">' + child.val().Status + '</span></strong>';
+	if(child.key == " Tolga")
+	HtmlContent += "</br></br>";
+	else if (child.key == "Detaylı")
+	{
+	var HtmlContent = "";
+	}
+	}
+	else{
+	var HtmlContent = '<img src = "' + child.val().Photo  + '" width="20" height = "20" </img> &nbsp;' + child.key + ' &nbsp;<strong><span style="color: rgb(255, 0, 0);">' + child.val().Status + '</span></strong>';
+	if(child.key == " Tolga")
+	HtmlContent += "</br></br>";
+	else if (child.key == "Detaylı")
+	{
+	var HtmlContent = "";
+	}
+	}
+	var newRow = table.insertRow(table.rows.length);
+	newRow.innerHTML = HtmlContent;
+	});
+	});
+}
+
+
+cikisButon.onclick = function () {
+	hasLogin = false;
+	window.open("", "_self");
+	window.close();
+	firebase.database().ref(temp_username).update({
+    Status: "Off"
+	});
+	firebase.database().ref("Detaylı").push(temp_username + ", " + new Date().toLocaleString("en-US", {timeZone: "Europe/Berlin"}) + " de Offline oldu.");
+}
+
+goAway.onclick = function () {
+	firebase.database().ref(temp_username).update({
+    Status: "Away"
+	});
+	const x = '<strong><span style="color: rgb(255, 255, 0);">Away</span></strong>';
+	on.innerHTML = x; 
+	var i = 0;
+	var interval = setInterval(() => {
+	console.log(i);
+	if(on.innerHTML != x || ((hours = "8" && i == 2700)) || ((hours = "10" && i == 3300)) || ((hours = "12" && i == 4500)))
+	{
+	console.log("STOP");
+	/* const y = '<span style="color: rgb(0, 255, 0);"><strong>Available</strong></span>';
+	on.innerHTML = y; */
+	initial_time += i;
+	firebase.database().ref(temp_username).update({
+    Time: initial_time
+	});
+	temp+=i;
+	clearInterval(interval);
+	}
+	i++;
+	}, 1000)
+	temp = 0;
+	firebase.database().ref("Detaylı").push(temp_username + ", " + new Date().toLocaleString("en-US", {timeZone: "Europe/Berlin"}) + " de Away oldu.");
+	
+	}
+
+goOnline.onclick = function () {
+	/*const y = '<span style="color: rgb(0, 255, 0);"><strong>Available</strong></span>';
+	on.innerHTML = y; */
+	firebase.database().ref(temp_username).update({
+    Status: "On"
+	});
+	
+	firebase.database().ref("Detaylı").push(temp_username + ", " + new Date().toLocaleString("en-US", {timeZone: "Europe/Berlin"}) + " de Online oldu.");
+}
+
+goCekim.onclick = function () {
+	if(cekimizni){ 
+	firebase.database().ref(temp_username).update({
+    Status: "Çekim"
+	});
+	const x = '<strong><span style="color: rgb(51, 102, 255);">Çekim</span></strong>';
+	on.innerHTML = x; 
+	var j = 0;
+	var interval2 = setInterval(() => {
+	console.log(j);
+	if(on.innerHTML != x)
+	{
+	console.log("STOP");
+	initial_time2 += j;
+	console.log(initial_time2);
+	firebase.database().ref(temp_username).update({
+    CekimTime: initial_time2
+	});
+	temp2+=j;
+	clearInterval(interval2);
+	}
+	j++;
+	}, 1000)
+	temp2 = 0;
+	firebase.database().ref("Detaylı").push(temp_username + ", " + new Date().toLocaleString("en-US", {timeZone: "Europe/Berlin"}) + " de 'Çekim' modunda.");
+	}
+	else
+	alert("Çekim moduna giremezsiniz.");
+}
+
+
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+window.onbeforeunload = function () {
+	if(hasLogin)
+	{
+	firebase.database().ref("Detaylı").push(temp_username + ", " + new Date().toLocaleString("en-US", {timeZone: "Europe/Berlin"}) + " de Offline oldu.");
+	firebase.database().ref(temp_username).update({
+    Status: "Off"
+	});
+	}
+	return confirm("Are you sure?");
+};
+
+
+if(!localStorage.getItem("uploaded-metadata")){
+    var metadata = '[]';
+    localStorage.setItem('uploaded-metadata', metadata)
+}
+
+
+
+	</script>
+	<!---------------------------------------->
+	
