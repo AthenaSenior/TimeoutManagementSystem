@@ -8,3 +8,4 @@ Try with demo user-
 Nickname: Aras
 Pass: 123321
 
+Check the details at https://www.instagram.com/p/CfV6UrTsCbk/
